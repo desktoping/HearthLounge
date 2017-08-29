@@ -1,32 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router';
-import {navItems} from '../../data/nav';
-import EntryNode from './entry-node';
+import React from 'react'
+import { Link } from 'react-router-dom'
+import {navItems} from '../../data/nav'
+import EntryNode from './entry-node'
 
-const Navbar = ({handleLogout, user, playerClass}) => {
-
-  const listSubmenu = (index, el, sub) =>{
-    return (
-      navItems[index].submenu.map((item, id) =>
-          <li className={sub[id].url} key={id}>
-            <Link to={`/${el.url}/${item.url}/overview`}>
-              <span className={`submenu__icon hs-icon icon-${sub[id].url}`}></span>
-              <div className="icon-label">{sub[id].name}</div>
-            </Link>
-          </li>
-      )
-    )
-  };
-
-
-  const dropdown = (el, index) => {
-    if (!el.hasOwnProperty('submenu')) return;
-    return (
-        <ul className="submenu">
-          {listSubmenu(index, el, el.submenu)}
-        </ul>
-    )
-  };
+const Navbar = ({handleLogout, user={}, playerClass}) => {
+  const dropdown = (el, index) => Object.keys(el).includes('submenu') ? 
+    (
+      <ul className="submenu">
+        {
+          navItems[index].submenu.map((item, id) => (
+            <li className={el.submenu[id].url} key={`menu-${id}`}>
+              <Link to={`/${el.url}/${item.url}/overview`}>
+                <span className={`submenu__icon hs-icon icon-${el.submenu[id].url}`} />
+                <div className="icon-label">{el.submenu[id].name}</div>
+              </Link>
+            </li>
+          ))
+        }
+      </ul>
+    ) : 
+    ( <div /> )
 
   return (
     <nav>
@@ -59,12 +52,12 @@ const Navbar = ({handleLogout, user, playerClass}) => {
         <EntryNode handleLogout={handleLogout} user={user}/>
       </ul>
     </nav>
-  );
-};
+  )
+}
 
 
 Navbar.propTypes = {
   user: React.PropTypes.object
-};
+}
 
-export default Navbar;
+export default Navbar

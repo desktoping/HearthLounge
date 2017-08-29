@@ -1,7 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
 import Carousel from 'antd/lib/carousel';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import {expansion_details} from "../../../../data/expansion-details";
 import {adventure_details} from "../../../../data/adventure-details";
 import 'antd/lib/carousel/style/index.css';

@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux';
-import {routerReducer} from 'react-router-redux';
+import {routerReducer as routing} from 'react-router-redux';
 
 import Home from './home';
 import Entry from './entry/entry'
@@ -25,7 +25,7 @@ const rootReducer = combineReducers({
   deckView: DeckView,
   redditPosts: RedditPosts,
   issues: Issues,
-  routing: routerReducer
+  routing
 });
 
 

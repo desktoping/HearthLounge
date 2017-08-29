@@ -1,7 +1,7 @@
 export const navItems = [
   {
     name: "home",
-    url: "home",
+    url: "",
     icon: "icon-hs-logo",
     homepage_block_width: 0
   },

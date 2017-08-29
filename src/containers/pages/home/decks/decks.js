@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import _ from 'lodash';
 import ClassSelection from './filters/class-selection';
 import ModeSelection from './filters/mode-selection';

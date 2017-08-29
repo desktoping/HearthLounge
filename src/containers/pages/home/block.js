@@ -1,8 +1,8 @@
-import React from 'react';
-import {Link} from 'react-router';
-import _ from 'lodash';
+import React from 'react'
+import {Link} from 'react-router-dom'
+import _ from 'lodash'
 
-const HomeBlock = ({title, width, icon, children}) =>{
+export default ({title, width, icon, children}) =>{
   return (
       <li className={`home__block ${icon} block-width-${width || 1}`}>
         <div className="home__block--header">
@@ -16,6 +16,4 @@ const HomeBlock = ({title, width, icon, children}) =>{
         </div>
       </li>
   )
-};
-
-export default HomeBlock;
+}

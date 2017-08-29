@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Navbar from './layout/navbar';
-import Footer from './layout/footer';
+// import Footer from './layout/footer';
 import {getActiveUser} from '../firebase/user/read';
 import {signOut} from '../firebase/user/utils';
 import {fetchData, fetchPatchData} from '../data/cards-data';
@@ -34,29 +34,50 @@ class Main extends Component{
   // }
 
 
-  render(){
-    const {authenticated, activeUser, children, location, playerClass, cards, patch} = this.props;
+  // render(){
+  //   const {authenticated, activeUser, children, match, playerClass, cards, patch} = this.props;
+  //   return (
+  //       <div id="container">
+  //         <Navbar url={match.path}
+  //                 user={activeUser}
+  //                 playerClass={playerClass}
+  //                 handleLogout={(e)=>signOut(e)}/>
+  //         {React.cloneElement(children, {
+  //           authenticated,
+  //           activeUser,
+  //           cards,
+  //           patch
+  //         })}
+  //         <Footer/>
+  //       </div>
+  //   );
+  // }
+  render() {
+    const {
+      authenticated,
+      activeUser,
+      children,
+      match,
+      playerClass,
+      cards,
+      patch,
+      ...others
+    } = this.props;
+
     return (
-        <div id="container">
-          <Navbar url={location.pathname}
-                  user={activeUser}
-                  playerClass={playerClass}
-                  handleLogout={(e)=>signOut(e)}/>
-          {React.cloneElement(children, {
-            authenticated,
-            activeUser,
-            cards,
-            patch
-          })}
-          <Footer/>
-        </div>
-    );
+      <Navbar url={match.path}
+        user={activeUser}
+        playerClass={playerClass}
+        handleLogout={(e)=>signOut(e)}
+      />
+    )
   }
+
 }
 
 Main.propTypes = {
   children: PropTypes.element.isRequired,
-  location: PropTypes.object.isRequired
+  match: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state =>{

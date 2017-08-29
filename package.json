@@ -24,8 +24,8 @@
     "react-copy-to-clipboard": "^5.0.0",
     "react-dom": "^15.4.0",
     "react-redux": "^5.0.4",
-    "react-router": "^3.0.2",
-    "react-router-redux": "latest",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "next",
     "react-treeview": "^0.4.7",
     "redux": "^3.6.0",
     "whatwg-fetch": "^2.0.2"
